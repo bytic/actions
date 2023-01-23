@@ -27,6 +27,7 @@
   },
   "autoload-dev": {
     "psr-4": {
+      "Bytic\\Actions\\Tests\\Fixtures\\": "tests/fixtures",
       "Bytic\\Actions\\Tests\\": "tests/src"
     }
   },

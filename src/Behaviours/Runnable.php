@@ -8,9 +8,12 @@ trait Runnable
     /**
      * @return static
      */
-    public static function make()
+    public static function make(): static
     {
-        return app(static::class);
+        if (function_exists('app')) {
+            return app(static::class);
+        }
+        return new static();
     }
 
     /**
@@ -50,5 +53,4 @@ trait Runnable
     {
         return static::runIf(! $boolean, ...$arguments);
     }
-
 }
