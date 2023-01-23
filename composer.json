@@ -1,0 +1,41 @@
+{
+  "name": "bytic/actions",
+  "description": "Actions utility for Bytic Framework",
+  "license": "MIT",
+  "type": "library",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Gabriel Solomon",
+      "email": "hello@gabrielsolomon.ro"
+    }
+  ],
+  "homepage": "https://github.com/bytic/actions",
+  "require": {
+    "php": ">=8.0",
+    "bytic/utility": "^0.9 || ^1.0"
+  },
+  "require-dev": {
+    "bytic/phpqatools": "^1.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Bytic\\Actions\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Bytic\\Actions\\Tests\\": "tests/src"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "ergebnis/composer-normalize": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "bytic/phpqatools": true
+    }
+  }
+}
