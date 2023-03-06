@@ -3,11 +3,11 @@
 namespace Bytic\Actions\Observers\Observers;
 
 use Psr\Log\LogLevel;
-use Symfony\Component\Console\Output\Output;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class ObserverConsoleOutput
+class ObserverConsoleOutput extends ObserverBase
 {
-    protected Output $output;
+    protected OutputInterface $output;
 
     protected $types = [
         LogLevel::INFO,
@@ -21,7 +21,7 @@ class ObserverConsoleOutput
         LogLevel::DEBUG,
     ];
 
-    public function __construct(Output $output)
+    public function __construct(OutputInterface $output)
     {
         $this->output = $output;
     }
