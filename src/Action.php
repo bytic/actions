@@ -2,7 +2,7 @@
 
 namespace Bytic\Actions;
 
-class Action
+abstract class Action
 {
     use Behaviours\AsAction;
 }
