@@ -16,7 +16,7 @@ trait Cacheable
             $this->dataCacheKey(),
             $this->dataCacheTtl(),
             function () {
-                return $this->generate();
+                return $this->generateCacheData();
             }
         );
     }
@@ -31,8 +31,6 @@ trait Cacheable
     {
         return $this->dataCacheKey();
     }
-
-    abstract protected function generate();
 
     protected function dataCacheKey($key = null)
     {
