@@ -9,7 +9,10 @@ trait HasAttributes
      * @var array<string, mixed>
      */
     protected array $attributes = [];
-
+    public static function withData(mixed $data = null)
+    {
+        return (new self())->setAttributes($data);
+    }
 
     /**
      * @param array $attributes
