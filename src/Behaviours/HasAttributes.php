@@ -9,6 +9,11 @@ trait HasAttributes
      * @var array<string, mixed>
      */
     protected array $attributes = [];
+
+    public static function for(mixed $data = null)
+    {
+        return (new self())->setAttributes($data);
+    }
     public static function withData(mixed $data = null)
     {
         return (new self())->setAttributes($data);
@@ -46,5 +51,10 @@ trait HasAttributes
         $this->attributes = [];
 
         return $this;
+    }
+
+    public function getAttribute($key, $default = null)
+    {
+        return $this->attributes[$key] ?? $default;
     }
 }
