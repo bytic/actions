@@ -16,13 +16,18 @@ trait HasReturn
         if ($this->returnIsSet()) {
             return $this->return;
         }
-        $this->return = $this->generateReturn();
+        $this->setReturn($this->generateNewReturn());
+        $this->populateReturn();
         return $this->return;
     }
 
-    protected function generateReturn()
+    protected function generateNewReturn()
     {
         return null;
+    }
+
+    protected function populateReturn()
+    {
     }
 
     public function setReturn($return): self
