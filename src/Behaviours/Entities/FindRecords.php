@@ -3,7 +3,7 @@
 namespace Bytic\Actions\Behaviours\Entities;
 
 
-use Bytic\Actions\Behaviours\HasDefaultReturn;
+use Bytic\Actions\Behaviours\HasReturn\HasDefaultReturn;
 
 trait FindRecords
 {

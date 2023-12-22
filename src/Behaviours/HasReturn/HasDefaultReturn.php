@@ -1,6 +1,6 @@
 <?php
 
-namespace Bytic\Actions\Behaviours;
+namespace Bytic\Actions\Behaviours\HasReturn;
 
 use Closure;
 

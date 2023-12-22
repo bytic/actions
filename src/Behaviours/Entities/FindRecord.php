@@ -2,7 +2,7 @@
 
 namespace Bytic\Actions\Behaviours\Entities;
 
-use Bytic\Actions\Behaviours\HasDefaultReturn;
+use Bytic\Actions\Behaviours\HasReturn\HasDefaultReturn;
 use Nip\Records\AbstractModels\Record;
 
 trait FindRecord
