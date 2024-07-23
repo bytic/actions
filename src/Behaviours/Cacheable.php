@@ -9,11 +9,10 @@ use Nip\Utility\Time\DurationValues;
 trait Cacheable
 {
     use CanCache;
-
     public function handle()
     {
         return $this->cacheStore()->remember(
-            $this->dataCacheKey(),
+            $this->cacheName(),
             $this->dataCacheTtl(),
             function () {
                 return $this->generateCacheData();
@@ -24,7 +23,7 @@ trait Cacheable
     public static function forgetCache()
     {
         $self = new self(...func_get_args());
-        $self->cacheStore()->forget($self->cacheName());
+        $self->cacheStore()->delete($self->cacheName());
     }
 
     protected function cacheName()
