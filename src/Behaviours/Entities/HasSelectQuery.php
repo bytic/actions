@@ -7,7 +7,18 @@ use Nip\Records\AbstractModels\RecordManager;
 
 trait HasSelectQuery
 {
-    protected function findQuery(): \Nip\Database\Query\Select
+    protected $query = null;
+
+    public function findQuery(): \Nip\Database\Query\Select
+    {
+        if (!isset($this->query)) {
+            $this->query = $this->generateQuery();
+        }
+
+        return $this->query;
+    }
+
+    protected function generateQuery(): \Nip\Database\Query\Select
     {
         $params = $this->findParams();
         return $this->getRepository()->paramsToQuery($params);
