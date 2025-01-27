@@ -20,8 +20,16 @@ trait HasSelectQuery
 
     protected function generateQuery(): \Nip\Database\Query\Select
     {
-        $params = $this->findParams();
-        return $this->getRepository()->paramsToQuery($params);
+        $filterManager = $this->getRepository()->getFilterManager();
+        $session = $filterManager->createSession($this->findFilters(), microtime());
+        $query = $this->getRepository()->paramsToQuery($this->findParams());
+        $query = $filterManager->filterQuery($query, $session->getName());
+        return $query;
+    }
+
+    protected function findFilters()
+    {
+        return null;
     }
 
     /**
