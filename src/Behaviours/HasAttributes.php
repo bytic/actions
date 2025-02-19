@@ -26,6 +26,13 @@ trait HasAttributes
         return $this;
     }
 
+    public function setAttribute($key, $value): self
+    {
+        $this->attributes[$key] = $value;
+
+        return $this;
+    }
+
     /**
      * @param array $attributes
      * @return static
@@ -52,5 +59,13 @@ trait HasAttributes
     public function getAttribute($key, $default = null)
     {
         return $this->attributes[$key] ?? $default;
+    }
+
+    public function getAttributeWithGenerator($key, callable $generator)
+    {
+        if (!isset($this->attributes[$key])) {
+            $this->attributes[$key] = $generator();
+        }
+        return $this->attributes[$key];
     }
 }
