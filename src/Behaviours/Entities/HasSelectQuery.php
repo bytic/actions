@@ -9,6 +9,8 @@ trait HasSelectQuery
 {
     protected $query = null;
 
+    protected $filters = [];
+
     public function findQuery(): \Nip\Database\Query\Select
     {
         if (!isset($this->query)) {
@@ -32,9 +34,15 @@ trait HasSelectQuery
         return $query;
     }
 
+    public function addFilter($name, $value)
+    {
+        $this->filters[$name] = $value;
+        return $this;
+    }
+
     protected function findFilters()
     {
-        return null;
+        return $this->filters;
     }
 
     /**
